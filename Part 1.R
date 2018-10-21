@@ -33,3 +33,14 @@ summaryfunc(chain = chain, burnIn = burnIn, trueA = trueA, trueB = trueB, trueSd
 
 # for comparison:
 summary(lm(y~x))    # comparing the methodf of MCMC with the method of linear regression
+
+# compare_outcomes function
+compare_outcomes <- function(n) {
+    alpha = runif(10, min=0, max=10)
+    beta = rnorm(10, sd = 5)
+    sigma = runif(10, min=0, max=30)
+    for(i in 1:10) {
+        ch <- run_metropolis_MCMC(startvalue = c(alpha[i], beta[i], sigma[i]), iterations = n)
+        print(c(mean(ch[, 1]), sd(ch[, 1])))
+    }
+}

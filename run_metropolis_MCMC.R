@@ -12,5 +12,5 @@ run_metropolis_MCMC <- function(startvalue, iterations){
             chain[i+1,] = chain[i,]    # if not accepted, the current chain stays at the previous chain
         }
     }
-    return(chain)    # returning the chain with 1001 sets of values including the starting value
+    return(chain)    # returning the chain with number of iteration + 1 sets of values including the starting value
 }
